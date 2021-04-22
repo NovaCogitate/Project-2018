@@ -1,0 +1,958 @@
+\documentclass[10pt]{article}
+
+\usepackage
+[
+        a4paper,% other options: a3paper, a5paper, etc
+        left=3cm,
+        right=2.5cm,
+        top=3cm,
+        bottom=3cm,
+        % use vmargin=2cm to make vertical margins equal to 2cm.
+        % us  hmargin=3cm to make horizontal margins equal to 3cm.
+        % use margin=3cm to make all margins  equal to 3cm.
+]{geometry}
+\usepackage{lipsum}
+\usepackage[DF,newLogo]{uaThesis}
+
+\def\ThesisYear{2018}
+
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} 
+\geometry{a4paper} 
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{booktabs} 
+\usepackage{array}    
+\usepackage{paralist} 
+\usepackage{verbatim}
+\usepackage{subfig}   
+\usepackage{fancyhdr} 
+\pagestyle{plain}    
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} 
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold 
+\usepackage{apacite}
+\graphicspath{{./Images/}}
+	
+% optional: visual delimiters for floats (figures and tables)
+\def\topfigrule{\kern 7.8pt \hrule width\textwidth\kern -8.2pt\relax}
+\def\dblfigrule{\kern 7.8pt \hrule width\textwidth\kern -8.2pt\relax}
+\def\botfigrule{\kern -7.8pt \hrule width\textwidth\kern 8.2pt\relax}
+
+\begin{document}
+
+
+\TitlePage
+  \HEADER{\BAR\FIG{\includegraphics[height=60mm]{uaLogoNew}}} 
+         {\ThesisYear}
+  \TITLE{João Pedro Dias Rodrigues}
+        {Phenomenology of the minimal B - L extension of the Standard Model}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+
+\TitlePage
+  \HEADER{}{\ThesisYear}
+  \TITLE{João Pedro Dias Rodrigues}
+        {Phenomenology of the minimal B - L extension of the Standard Model}
+  \vspace*{15mm}
+  \TEXT{}
+       {Apresentado na  Universidade de Aveiro para cumprimento dos requisitos necessários à 
+obtenção da unidade curricular Projeto. Realizado sob a orientação ao do Dr. António
+Morais}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+\TitlePage
+  \vspace*{55mm}
+  \TEXT{\textbf{o j\'uri~/~the jury\newline}}
+        {\newline {\small
+       (orientador)}}
+       {}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+\TitlePage
+  \vspace*{55mm}
+  \TEXT{\textbf{agradecimentos~/\newline acknowledgements}}
+       {Algo}
+  \TEXT{}
+       {Tambem algo}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+\TitlePage
+  \vspace*{55mm}
+  \TEXT{\textbf{Resumo}}
+       {Um resumo simples e direto}
+  \TEXT{}
+       {Nova linha}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+\TitlePage
+  \vspace*{55mm}
+  \TEXT{\textbf{Abstract}}
+       {work}
+\EndTitlePage
+\titlepage\ \endtitlepage % empty page
+
+
+\pagenumbering{roman}
+\tableofcontents
+
+\cleardoublepage
+\listoffigures
+
+\cleardoublepage
+\listoftables
+
+\cleardoublepage
+\newgeometry{textwidth=6.5in,textheight=9in}
+
+\section{Introduction} 
+\pagenumbering{arabic}
+\setcounter{page}{1}
+When the the Large Hadron Collider (LHC) first came online it opened the gate to new discoveries in high energy particle physics. Since then It has not only found the last
+missing particle of the Standard Model (SM) of particle physics, the Higgs boson, but indicated to physicists that there are possibly new horizons for particle physics beyond the Standard Model
+
+Still thus far the conventional theoretical foundation for particle physics dynamics and interaction has been what is known as the Standard Model (SM) of particles. This theory is accurate for most cases, however the current consensus is that it's incomplete. 
+
+This is again due mainly to the LHC and some telling holes in the SM, currently, just to name a few, out of the multitude of reasons, that the SM might be incorrect, we have phenomena   ranging from the fact that the standard model simply does not incorporate any type of gravity at the quantum level to experiments at the Large Hadron Collider confirming non-vanishing neutrino masses witch have not been predicated by it further more oddities like the existence of a apparent "accidental" $U(1)_{B-L}$ symmetry might mean undiscovered physics as we'll soon discuss.
+
+During this essay we'll be taking a close look at these last two problems in the Standard Model and look into a possible way to reconcile these problems with the Standard Model. We'll attempt to solve these problems trough a very simplest way, by assuming that this  $U(1)_{B-L}$ is indeed a internal symmetry  and there by addition of a new gauge field associated to the charge for this given symmetry.
+
+However, analyzing new models and studying their phenomenology can be really challenging.
+Computing mass matrices, interaction vertices and decay rates is a tremendous task.
+For this reason, computer tools such as SARAH, SPheno or  HiggsBounds  have become quite popular, as many physicists use them now on a daily basis. In this course we will learn how to use these computer tools to explore new physics models a
+
+
+(* Part dedicated later to the discussion of phenomological results. *) 
+
+
+\subsection{Basic concepts}
+
+The complexity behind the matters approached in this essay is not to be underestimated, thus we begin with a sizeable review of fundamental concepts.
+
+We'll begin by introducing Classical field theory, witch can be thought of as the application of classical dynamics to physical fields and understand how these physical fields interact. [swartz] After witch we'll introduce the famous Noether's theorem as we begin our study of the concept of symmetry in the context of system dynamics. And finishing the brief chapter with a short discussion on how group theory and group representation tie into the concept of transformations, these concepts introduced we can move on to the study of the Standard model and tie these concepts to particle physics until we are ready to search beyond the Standard Model. 
+
+\subsubsection{Classical Field Theory} 
+
+To further elaborate on the reasons behind the study of classical field theory, we will introduce this as a means to introduce physical fields and there dynamics witch will be fundamental for our discussion seeing as the accurate treatment of quantum particle interactions has to be handled with physical fields trough quantum field theory. 
+
+Recall that from early quantum mechanics theory situations like the non-relativistic or relativistic treatment of a "single particle" system approach with the Dirac and Klein-Gordon equation led to a great deal of problems such as negative energy states, a non zero value of the propagator of a particle for a point outside of the light cone allowing the particle to break causality, Quantum Field theory came to later fix these issues trough the union of quantum mechanics and classical field theory. %citado do peskin% 
+
+This approach allowed for multiple particle interactions, explained anti-particles and allowed for addition of intermediate states. We'll not go into any quantum field theory in this essay or justify these claims simply consider this the motivation for us to hence forth use Fields to describe particles. 
+
+Moving onwards to definitions, we can conceptualise a physical field has a assignment of a physical quantity to some representation of space, as a quick example of a classical field we can think of the value of temperature in a volume, or as a vector field describing the wind direction and intensity, note how one is a normal vector field and another is a tensor field even though they are both physical fields. 
+
+The first physical theory that can be considered a prime example of classical field theory was newtons non-relativistic theory of gravity that related a vector field of the force felt on a massive body with mass $m$, $\mathbf{F(r)}$ with the gravitational field created by a massive body with mass $M$, $\mathbf{g(r)}$.
+
+\begin{equation}
+\mathbf{g(r)} = \frac{\mathbf{F(r)}}{m}
+\end{equation}
+
+This can be written in it's more familiar form: 
+
+\begin{equation}
+\mathbf{F(r)} = - \frac{GMm}{r^2} \mathbf{\hat{r}}
+\end{equation}
+
+Where $G$ is newtons gravitational constant $\mathbf{\hat{r}}$ is the unitary vector that points from either body to the other and $r^2$ is the distant between the bodies squared.  
+
+\subsubsection{Lagrangian Field Theory}
+
+For the purpose of this essay we will only use Lagrangian field theory, hence we'll introduce it's most fundamental objects of study, the action $S$,  the Lagrangian, $L$,, and the \textit{Lagrangian density}, $\mathcal{L}$  a function dependent of the field, $\Phi $ and it's spacial and temporal derivative that can be simplified in covariant notation as, $(\frac{\partial \phi}{\partial t}, \nabla \phi) = \partial_\mu \Phi$ all related as shown,
+
+\begin{equation}
+\mathcal{S}=\int L \; dt=\int \mathcal{L}(\Phi , \partial_\mu \Phi) \; d^\mu x. 
+\end{equation}
+$\mathcal{S} $ is then defined as a functional of $\Phi$, and must be a real value. During this essay we'll mostly try to stay trough to the distinction of Lagrangian and Lagrangian density but these terms are usually used interchangeably and we'll later as a abuse of language use them in that fashion.   
+  
+The physical meaning of this density is quite analogue to the one we know from classical mechanics, and has in classical mechanics  the dynamic of a field are also subject to the, \textit{the principle of least action}, that states that the evolution of a "physical" field must conserve the "\textit{action}", $\mathcal{S}$, that translated into:
+
+\begin{equation}
+\delta \mathcal{S} = 0
+\end{equation} 
+
+\begin{equation}
+\mathcal{S}[\Phi]=\int L (\Phi ,\nabla \Phi , \dot{\Phi }) d^0 x = \int L(\Phi , \partial_\mu \Phi ) d^i x , \quad i= 1,2,3
+\end{equation}
+ 
+This condition leads to the \textit{Euler-Lagrange} equations.  
+
+\begin{equation}
+ \partial_\mu \left( \frac{\partial \mathcal{L}(\Phi , \partial_\mu \Phi )}{\partial(\partial_\mu \Phi)} \right) - \frac {\partial \mathcal{L}(\Phi , \partial_\mu \Phi )}{\partial \Phi}  = 0 
+\end{equation}
+
+% pensando em remover esta parte %
+
+As a example, let's consider a scalar field that describes a massive particle without charge. It's Lagrangian density would be \footnote{Note that $\Phi$ could be a complex field and the need for the action to be real makes it so that $\Phi$ must always be multiplied by it's conjugate.}: 
+
+\begin{align}
+\mathcal{L} =\frac{1}{2} \ \eta^{\nu \! \mu} \partial_\mu  \Phi^*  \partial_\nu   \Phi  -  \frac{1}{2}    m^2 \Phi^* \Phi 
+\end{align}
+
+The Lagrangian density has this form because by definition the Lagrangian  is defined the diffidence between the kinetic energy of the field , $T$, and the potential energy, $V$ ($L=T-V$). Hence the Lagrangian must be this way to ensure the "classical" forms for these quantities.
+
+\begin{equation}
+T= \int \frac{1}{2}  \frac{\partial \Phi}{\partial t} d^3 x \qquad V=\int \frac{1}{2} \left( (\nabla \Phi)^2 + m^2 \Phi^2  \right) d^3 x 
+\end{equation}
+
+Using then the \textit{Euler-Lagrange} equation we can retrieve the Klein-Gordon equation of motion from this field. 
+
+\begin{align}
+ (\square + & m^2 )\Phi  =0 \\
+ (\square + & m^2 )\Phi^*  =0 
+\end{align}
+
+These are the equations of motion of the classical field where the "square" operator is the d'Almebert operator $\square=\partial_\mu \partial^\mu$ 
+
+\subsubsection{Transformations, symmetry and Noether's theorem}
+
+Symmetry can very broadly be defined as a property of a system that is preserved or remains unchanged, in physics it's used as a powerful tool that usually helps us solve problems by allowing for systematic simplifications. 
+
+The most obvious example of symmetry in physics would probably be the discrete rotational symmetry in the shapes of regular crystalline structures, of course we given our study matter we aren't really interested symmetry of \textit{shape} we'll be more focused on \textit{internal symmetries} when discussing particle physics these are symmetries that can not be explained trough geometrical terms.   \cite{costa2012symmetries} %perceber melhor% 
+
+Newton was the first to realise that the observation of symmetry in the dynamics of a system or object must not come from a particular solution of the system but by the careful examination of all the possible solutions for the dynamics of a given system, this put simply means that observing a symmetry in the motion of a system must come from the equations of motion and not from a particular solution of those equations. 
+
+It may happen then that a Lagrangian is invariant under a generic type of variation,
+\begin{equation}
+\phi \rightarrow \phi + \delta \phi , 
+\end{equation}
+
+For example the complex scalar field Lagrangian, 
+
+\begin{equation}
+\mathcal{L} = | \partial_\mu \phi | ^2 - m^2 |\phi|^2.
+\end{equation}
+
+This Lagrangian is invariant under any such transformation where $\phi  \rightarrow e^{i \alpha } \phi$  for any real $\alpha$, then it's said that under these transformations the system is \textbf{symmetrical} or this is a \textbf{symmetry} of the system. In this complex field $\phi$ we have two different real degrees of freedom since $\phi = \phi_1 + \phi_2$, but it's more convenient to treat them as $\phi$ and $\phi^*$. The invariance of the Lagrangian preservers the equation of motion since they are directly related as we've seen before. 
+
+The deeper implications of a system having a symmetry were successfully mathematically expressed by Noether with her famous first theorem. Noether's theorem states that the existence of a natural symmetry implies a conservation law and vice-versa any conservation law implies a underlying symmetry.
+
+Let's apply Noether's theorem to a field. Let's assume we have a generic field $\Phi$ that is transformed in a infinitesimal manner. 
+
+\begin{equation}
+\Phi(x) \longrightarrow \Phi^\prime (x) = \Phi(x) + \alpha \delta \Phi (x) 
+\end{equation}
+%talvez fazer outra vez 
+
+Where $\alpha$ is a infinitesimal parameter and $\delta \Phi$ is a deformation of the field. Now to examine any changes made to the dynamics of the system, we do this by imputing the new field into the Lagrangian Density and deriving the new \textit{Euler-Lagrange} equations. We could then say, if the system dynamics remains the same, that this is a \textbf{symmetry} of the system since it's dynamics are \textbf{invariant} under these transformations.
+
+This is equivalent to stating that invariance of a system should leave the Lagrangian density invariant up to a 4-divergence, $\mathcal{J}$ because of how the \textit{Euler-Lagrange} equations are formulated. 
+
+\begin{equation}
+\mathcal{L} \rightarrow \mathcal{L} + \alpha \partial_\mu \mathcal{J}^\mu
+\end{equation}
+
+Then the expectation for $\Delta \mathcal{L}$ is the result by varying the field is written as. 
+
+\begin{align}
+\alpha \Delta \mathcal{L} = & \frac{\partial \mathcal{L}}{\partial \phi} \left( \alpha \Delta \phi \right) + \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right) \partial_\mu (\alpha \Delta \phi) \\
+ = & \alpha \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial ( \partial_\mu \phi)} \right) + \alpha \left[ \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial(\partial_\mu \phi} \right) \right]
+\end{align}
+
+You can clearly see that the second term is the Euler-Lagrange equation so that term vanishes and setting the equation equal to $\alpha \partial_\mu \mathcal{J}^\mu $ we obtain the following 
+
+\begin{equation}
+\partial_\mu j^\mu (x) \quad \text{for} \quad j^\mu (x) = \frac{\partial \mathcal{L}}{\partial ( \partial_\mu \phi)}  \Delta \phi -\mathcal{J}^\mu  
+\end{equation}
+
+As a note, if we have a symmetry of several fields the first term of $j_\mu$ should be replaced by a sum over those several fields. This $j_\mu$ is the current associated with a symmetry in a system it is conserved trough all transformations and for every distinct symmetry we have a different conserved current, so a system with a 2 distinct symmetries will have 2 different sets of conserved 4-currents. The charge, $Q_{sym} $ associated to this current is given by the integral: 
+
+\begin{equation}
+Q_{sym} \ = \underset{all \ of \ space}{\int} j^0 d^3 x
+\end{equation}
+
+The physical implications of this current and charge is usually explained with electrical charge. If inicialy we had a charge inside a volume the only way for us to lose charge over time would be to have a flux of charge leaving the space, \textbf{a current}, and at every point in time the this current has inside the volume is a defined integral value, the \textbf{charge}. 
+
+\subsubsection{Notation, Relativity and Lorentz transformations}
+
+Nota:Talvez colocar isto ou em apendix ou no inicio
+
+Since the focus of this essay approaches the analysis of quantum theories that are tied to particle physics at the electroweak scale and beyond, we must ensure our study must be consistent with the theory of special relativity. Therefore we must revisit the definitions, the notation and the representations used in relativistic theories. From here onwards we'll use natural units, so consider $\hbar=c=1$. This gives all quantities dimensions of mass to some power 
+
+Beginning by shallowly touching on some basic concepts of relativity. Starting with the notion of interval between two events, this notion will replace our previous understanding of distance in a frame of motion. 
+
+For a generic set of space-time coordinates the interval between them is the quantity,$s$ and is defined by $s^2=c^2 dt^2 - (dx^2 +dy^2 + dz^2) $. This configuration of signs is stipulated by convenience, it would still be equivalent to have the plus and minus sings swapped but we'll use the mostly negative representation during this essay.
+
+\begin{align}
+x^\mu= & (x^0,x^1 ,x^2 ,x^3) = (ct,x,y,z)  \\  x_\mu= & (x_0,x_1 ,x_2 ,x_3) = (ct,-x,-y,-z)  
+\end{align}
+We also define the covariant differential operator as a vector in this notation: 
+
+\begin{equation}
+\partial_\mu = g_{\mu \nu} \partial^\nu = (\partial_0,\partial_1 ,\partial_2 ,\partial_3)=(\frac{1}{c} \frac{\partial }{\partial t },\frac{\partial }{\partial x },\frac{\partial }{\partial y },\frac{\partial }{\partial z })=(\frac{1}{c} \frac{\partial}{\partial t} , \nabla)=\frac{\partial}{\partial x^\mu}
+\end{equation}
+
+In this notation a vector with a upper index is called a covariant index and a vector with a lower index is called a contravariant vector. The inner product of these vectors would as we mention be a Lorentz invariant scalar. To further simplify the notation we'll be combining this with the summation convention so a "contracted" index will automatically be summed from 0 to 3 as shown 
+
+\begin{equation}
+\sum_{\mu=0}^{3}  V_\mu V^\mu \longrightarrow V_\mu V^\mu
+\end{equation}
+
+The relation relation between covariant and contravariant vectors is expressed with auxiliary to the space metric, $\eta_{\mu \nu}$.
+
+\begin{align} 
+x_\mu & =  \eta_{\mu \nu} x^\nu  \\ 
+x_\mu & =  \eta_{\mu 0} x^0  + g_{\mu 1} x^1  + g_{\mu 2} x^2 + g_{\mu 3} x^3  
+\end{align}
+
+\section{The Standard Model}
+
+
+The SM is the presently accepted quantum field theory describing strong and electroweak interactions, and has been successfully tested in a number of experiments The SM is a gauge theory, based on the group
+
+\begin{equation}
+SU(3)_c \times SU(2)_L \times U(1)_Y \quad  ,
+\end{equation}
+
+From here the complete all the vector particles emerge, the standard model is comprised by, fermion fields whose interactions will lead to chromodynamics and form the "matter" particles we are more familiar with, the electroweak boson fields $W_1$, $W_2$ ,$W_3$  and $B$, gluon fields and the Higgs Field. 
+
+
+\begin{comment}
+\begin{equation}
+D_\mu = \partial_\mu - i g_S \tau^a G^a_\mu - i g T^i W^i_\mu - i g' Y B_\mu 
+\end{equation}
+
+Where $\tau^a$ where $\tau^a= \frac{\lambda_a}{2}$ , $(a = 1, . . . , 8)$ are the generators of $SU (3)_c$, $T_i= \frac{\sigma_i}{2} $, $(i = 1, 2, 3)$ are the generators of $SU(2)_L$ and Y is the generator of $U(1)_Y$. Here the symbols $\lambda_a$ and $\sigma_i$ represent the Gell-Mann and Pauli matrices respectively. We'll during this chapter show how this particular derivative arises from the physical constraints of our theory. 
+\end{comment}
+
+
+\subsection{The Spontaneous Symmetry Breaking Mechanism and Goldstone's Theorem} 
+Having dealt with the fundamentals of field theory and having dealt with the concepts of symmetry and groups let's begin our discussion of the standard model by examining the scalar sector. 
+
+In this sector we'll observe the mechanism of spontaneous symmetry breaking, that could very briefly be describe this mechanism as the "natural" breaking of a symmetry by natural occurring phenomena in particle physics, just to clarify that we will not be adding any terms or interactions that would directly break the symmetry. 
+
+In quantum field theory it is possible for a system to have a non zero minimum value, coupled with with statical mechanics means that indeed it is possible to have a non zero expected global value for a given Field.
+
+When a physical fields takes a non zero value might it might have a direction or orientation. A example of unrelated physical field displaying such behaviour could be exemplified as the magnetic field of a ferromagnetic material, it naturally tends to a configuration with a non zero orientation giving it a natural magnetic field.  
+
+This directional character of the system expected value can in some cases break a previously held symmetry by the system this is what is called a case of Spontaneous Symmetry breaking, to examine this we'll be starting off with a simple example of a scalar theory. Consider the Lagrangian of a $\Phi^4$ complex scalar theory.
+
+\begin{align}
+\mathcal{L} & =T - V \\ 
+\mathcal{L} & =(\partial_\mu \Phi)^* ( \partial^\mu \Phi) -  \mu^2 (\Phi^* \Phi) - \lambda (\Phi^* \Phi)^2
+\end{align}
+
+Here $\lambda$ is the term is the self interaction that must be a positive value ($\lambda > 0$) to allow for a spectrum of stable bound states and $\mu$ is a real value.
+
+This Lagrangian is invariant under global unitary transformations belonging to the U(1).
+
+\begin{equation}
+\phi^\prime \rightarrow e^{i\alpha} \phi \quad  , \quad \phi^{* \prime}=e^{-i \alpha} \phi^* \quad ,
+\end{equation} 
+
+where $\alpha$ is a real value. This is easily be proven due to the fact that all fields are in some form of even power. 
+
+\begin{align}
+\mathcal{L} =& \frac{1}{2}(\partial_\mu \Phi^{\prime \, *} \partial^\mu \Phi^{\prime} ) +  \mu^2 \Phi^\prime \Phi^{\prime \, *} - \frac{1}{4} \lambda (\Phi^\prime \Phi^{\prime \, *})^2	\\
+\mathcal{L} =& \frac{1}{2}e^{i(\alpha-\alpha)}(\partial_\mu \Phi^{*} \partial^\mu \Phi ) +  e^{i(\alpha-\alpha)} \mu^2 \Phi \Phi^* - \frac{1}{4} \lambda (e^{i(\alpha-\alpha)})^2(\Phi \Phi^{*})^2	\\
+\mathcal{L} =& \frac{1}{2}(\partial_\mu \Phi^{*} \partial^\mu \Phi^{*} ) +  \mu^2 \Phi \Phi^* - \frac{1}{4} \lambda (\Phi \Phi^{*})^2	\\
+\end{align} 
+
+For now let's treat $\phi$ as a field comprised by two continuous free parameter, we can examine the potential portion of the Lagrangian
+
+\begin{equation}
+V(\Phi)=  \frac{1}{2} m^2 \Phi \Phi^* - \lambda (\Phi \Phi^{*})^2
+\end{equation}
+
+Seeking to analyse it's ground state, in the case of $\mu > 0$ the potential is simply a parabola with it's minima in 0 however,with a directional symmetry and a phase symmetry around it's minima however were we to say $\mu$ is a negative number something very interesting would happen, the minimum condition,
+
+\begin{align}
+\frac{\partial V(\Phi)}{\partial \Phi} & = 0 \\
+2  \mu |\Phi|+ 4 \lambda |\Phi|^3 & = 0 
+\end{align}
+
+Now returns a equation for a different minima has we see (bellow) and zero now is now a relative maximum of the potential  
+
+\begin{equation}
+|\phi|^2_{min} = -\frac{\mu}{2 \lambda}
+\end{equation}
+
+This value will be called the fields vacuum expectancy value or VEV. This minima is a continuous set of solutions that can be written in it's radial form, 
+
+\begin{equation}
+\phi_{min} = |\phi|_{min}  e^{i\gamma}
+\end{equation}
+
+\begin{figure}[H]
+
+\includegraphics[width=14cm, height=4.5cm]{Des.png}
+\caption{Phase Shift of the Potencial in a Higgs Style Field}
+
+\end{figure}
+
+
+This minima represent a set of degenerate vacuum states, to the observant eyes it's clear one symmetry of the potential is now broken by this change, we can see by examining both the potentials that in both cases we have phase invariance but in the case where $\mu$ is negative we no longer have radial invariance around the VEV. 
+
+
+
+We can see this easily if we shift the field into the minima, and considering the phase is irrelevant we'll take the particular solution where $\gamma$ is zero to simplify the mathematics. So the shift can be written as transforming the previous field. 
+\begin{align}
+\Phi(x) & \longrightarrow \Phi^\prime (x) \\
+\frac{1}{\sqrt{2}} \left( \phi_1 (x) + i \phi_2 (x) \right) & \longrightarrow  \frac{1}{\sqrt{2}} \left( \eta(x) + \nu + i \epsilon(x) \right) 
+\end{align}
+Where $\nu$ is equal to $\sqrt{-\frac{\mu}{\lambda}}$. Now plugging this new field into the Lagrangian returns a equivalent physical description of dynamics, we simply changed the fields in witch these are expressed, $\mathcal{L} \equiv \mathcal{L}^\prime$.  
+
+\begin{equation}
+ \mathcal{L}^\prime = \frac{1}{2} \partial_\mu \epsilon(x) \partial^\mu \epsilon(x) + \frac{1}{2}\partial_\mu \eta(x) \partial^\mu \eta(x)  - \frac{1}{2} ( 2\mu ^2)  \eta^2 - \frac{1}{4} \lambda (\epsilon^2 + \eta^2)^2 - \lambda  \nu  (\epsilon^2 + \eta^2) \eta
+\end{equation}
+
+Comparing this new Lagrangian density and the former we see that while in the former we had a squared mass term with value $\mu^2$ for both $\phi_1$ and $\phi_2$ now in this new redefinition we only have one mass term in $\eta$ with squared mass equal to $ m^2_\eta = - 2 \mu^2 = 2 \lambda \nu $ and a massless scalar field $\epsilon$.
+
+The physical meaning of these fields then is, that $\eta$ represents the quantum excitations, above the constant background value along the radial direction while the field epsilon represents the excitations along the curvature of the potential, the fact that the potential doesn't change along this type of movement being reflected by it being a massless scalar field. 
+
+In summation what we just observed discussed is that when $\mu$ changes from a positive number to a negative number what we observe is that the system goes trough a phase transition. A phase transition where a previous existing symmetry, in this case  $U(1)$, is broken as a consequence of such breaking previously conserved quantities stemming from a application of noether's theorm are no longer conserved. 
+
+This change that $\mu$ goes trough, going from positive to negative is quite similar to what happens as a  consequence of the renormalization procedure for the Higgs field a process that we'll explore later and that leads to the mass generation for the electroweak $W^\pm$ and $Z$ bosons in the standard model.
+
+The massless particle that appeared in our example is a direct consequence of Goldstone's theorm and is usually called a Goldstone boson. The theorem states that when in a system with a certain number of linearly independently continuous symmetries has a number of these spontaneously  broken the same number of  massless particles will appear in the system. 
+
+\subsection{The Gauge Group and Quantum Electrodynamics}
+
+In the previous chapter we discussed a particular case on a simple complex scalar Lagrangian called a global transformation where the entirety of the field was changed by a constant phase given by the symbol $\alpha$.
+
+%duvida? qual é o gerador num grupo de transformaçao global
+
+This symmetry would imply that the choice of phase is irrelevant when studying the field. The objective of this chapter is to show that by restraining this phase change to be coherent with the limitations of relativistic theories, this is that the phase of a field, like all information, can't be changed everywhere instantly, translating in particular phase transformations having to be done locally with $\alpha$ being not a constant but a function of space-time.  
+
+Trying to maintain the symmetry after this constraint is formally known as the promoting the global symmetry to a local symmetry, to do so requires as we'll see the addition of a field known as a gauge field. It can then be shown that electromagnetism stems naturally from gauge fields connected to scalar fields, but we are getting a bit ahead of ourselves, examine the following local transformations. 
+
+\begin{equation}
+\phi(x) \rightarrow e^{i \alpha (x)} \phi (x) \quad , \quad \phi^*  (x)\rightarrow e^{-i \alpha (x)} \phi^* (x)  \quad ,
+\end{equation}
+ 
+Applying this transformation to the former Lagrangian density seen in the complex scalar theory we can see that the derivative terms are not invariant, those particular terms are transformed into. 
+
+\begin{align}
+\partial_\mu \Phi^\prime \rightarrow &  \partial_\mu \left(e^{i \alpha(x)} \Phi \right) = e^{i \alpha \left(x\right)}.\left( i (\partial_\mu \alpha )  \Phi + \partial_\mu \Phi \right) \\
+\partial_\mu \Phi^{\prime \ *} \rightarrow &  \partial_\mu \left( e^{-i \alpha \left(x \right)} \Phi^* \right) =  e^{-i \alpha \left(x \right)}.\left(  -i (\partial_\mu \alpha )  \Phi^* + \partial_\mu \Phi^* \right)
+\end{align}
+
+To reattain invariance under gauge transformations we have to introduce directly a new 4-vector the gauge field $A_\mu$ and 3 new terms in the Lagrangian.
+
+For reasons we won't delve into this field does, and has to conserve invariance, to keep the action invariant as. 
+\begin{equation}
+A_\mu^\prime \rightarrow A_\mu \frac{1}{q} \partial_\mu \alpha \left(x \right) 
+\end{equation} 
+The first and second terms added are 
+
+\begin{align}
+\mathcal{L}_1 & =  -q \left( \Phi^* \partial_\mu \Phi  - \Phi \partial_\mu \Phi^* \right) A_\mu \\
+\mathcal{L}_2 & =  q^2  A^\mu A_\mu \Phi \Phi^* 
+\end{align}
+
+ In addition to these terms it's also added a third term to the Lagrangian that is gauge invariant and defines the curl of the gauge field, $F_{\mu \nu}$. 
+
+  Now if we write the new Lagrangian 
+ \begin{align} 
+  \mathcal{L}_{tot}= & \mathcal{L}_0+\mathcal{L}_1+\mathcal{L}_2+\mathcal{L}_3 \\
+  \mathcal{L}_{tot}= & (\partial_\mu \Phi)(\partial^\mu \Phi^*) - iq(\Phi^* \partial^\mu \Phi - \Phi \partial^\mu \Phi^* )A_\mu + q^2 A_\mu A^\mu \Phi^* \Phi - m \Phi^* \Phi - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} \\ 
+  \mathcal{L}_{tot}= & (\partial_\mu \Phi + iq A_\mu \Phi)(\partial^\mu \Phi^* - iq A^\mu \Phi)- m^2 \Phi^* \Phi  - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} \\
+  \mathcal{L}_{tot}= & D_\mu \Phi D^\mu \Phi^*  - m^2 \Phi^* \Phi  - \frac{1}{4} F^{\mu \nu} F_{\mu \nu}
+ \end{align}
+ With this addition the total Lagrangian is now invariant. If we examined the result of this addition we now see that the complex field $\Phi$ was coupled to the gauge field we introduced. We also redefined the new covariant derivative operator, $D_\mu$. Given that $F_{\mu \nu}$ is the electromagnetic field tensor we have just shown that the electromagnetic Field appears seamlessly from the necessity for a scalar  field to be gauge invariant under local transformations. 
+
+\subsection{The unification of the electromagnetic group with the weak interaction group}
+
+The present theory  of electro-weak interaction is a gauge theory based on the mechanism of spontaneous symmetry breaking involving the Higgs fields like we mentioned before. We'll try to approach and justify the connection between the weak force and the electromagnetic force trough the group, $SU(2) \times U(1)$ and expose how the gauge bosons that mediate the weak interaction and later demonstrate how they achieve a non zero mass.
+
+Before continuing consider that we know of 6 observed quarks (u,d,s,c,b,t) having each assigned a flavour and one of 3 different colors. The leptons do not carry color, not participating in strong interactions but being present in the weak interaction, there exist 3 families of leptons ($L_e$,$L_\mu$,$L_\tau$), distinguished by there lepton number, in each of these having a charged and not charged variant, the charged being electrons muons and taus ($e^-$,$\mu^-$,$\tau^-$) and the neutral ones being the corresponding neutrinos.     
+
+The part of the Lagrangian in the SM that describes the charge current interactions (recall that since charge is conserved according to noether's theorem there is associated a specific current) in the standard model is given by the expression, 
+
+\begin{equation}
+\mathcal{L}_{weak}=\frac{4}{\sqrt{2}} G_F j^\mu (x) j^\dagger_\mu (x)
+\end{equation}
+
+ with $G_F$ being the fermi constant, this portion describes the charge interactions trough the product of a charge raising and lowering current, this process is universal in the weak interaction, these currents, for the case of the electron and electron neutron pair, can be written as,   
+\begin{align}
+j_\mu(x)=\overline{\nu}_e(x) \gamma_\mu \frac{1}{2}(1-\gamma_5)e(x) & = \overline{\nu}_{e_L}(x) \gamma_\mu e_L(x), \\
+j_\mu^\dagger (x)=\overline{e}(x) \gamma_\mu \frac{1}{2}(1-\gamma_5) \nu_e (x) & = \overline{e}_L(x) \gamma_\mu \nu_{e_L} (x),
+\end{align}
+corresponding to a change of charge $\pm 1$ and containing only left handed fields allowing for the simplification trough the use of the doublet, 
+\begin{equation}
+E_L = \left( \begin{matrix}
+\nu_e \\ 
+e^- 
+\end{matrix} \right)_L
+\end{equation}
+This way we can rewrite the currents as trough the use of the shift operators, 
+\begin{equation}
+j_\mu^{(\pm)} =  \overline{E}_L (x) \gamma_\mu I_\pm E_L(x) 
+\end{equation}
+Defining them as $I_\pm=I_1 \pm I_2$ where $I_i$,$(i=1,2,3) $ are the isonspin generators, these can be writen in terms of the pauli matrices as, $I_i=\frac{1}{2} \sigma_i$. These generators mean that isospin group is a variant of the $SU(2)$ group that we'll represent with $SU(2)_L$ with the generator $I^3$ being assigned to the neutral current. However trough experimental observations we know that the neutral current must also take into account right handed fields indicating that this is not a correct description of the electromagnetic current, here is where the group $U(1)_Y$ comes into play. In the case of the electron we should be able to write the electromagnetic current as: 
+\begin{equation}
+j^{em}_\mu = \overline{e}(x) \gamma^\mu Q e (x)= \overline{e}_R \gamma_\mu Q e_R +   \overline{e}_L \gamma_\mu Q e_L
+\end{equation}
+Where Q is the charge associated to the given field, for example in the case of the electron -1 (in natural units). 
+
+It can be shown that the electric charge is related to the weak isospin number trough the equation, 
+\begin{equation}
+Q=I_3 + \frac{1}{2} Y
+\end{equation} 
+here Y being the weak hypercharge number, that has it's eigenvalues chosen in such a manner to allow for the correct charge, thus allowing us to rewrite the electromagnetic current using these values arriving and some particularly chosen currents, 
+\begin{equation}
+j^{em}_\mu = j^{(3)}_\mu + \frac{1}{2} j^Y_\mu
+\end{equation}
+where the hypercharge current is for the electron pair 
+\begin{equation}
+j^Y_\mu = \overline{E}_L (x) \gamma_\mu Y E_L (x) + \overline{e}_R (x) \gamma_\mu Y e_R (x)
+\end{equation}
+Note that we have to then assign to the right handed $e_R$ singlet the hypercharge of $Y=-2$ while the left handed singlet gets a value of $Y=1$ (maybe add a table with all the numbers for the particles). The consequences of the electromagnetic neutral current being writen as a combination of both the hypercharge and isospin current leads to the conclusion that the gauge theory is based on the group $\mathcal{G}$ 
+\begin{equation}
+\mathcal{G} \equiv SU(2)_L \times U(1)_Y
+\end{equation}
+Witch due to the fact that this group is composed by 4 generators 2 of witch are included in both electromagnetic and weak currents leads to gauge group containing both interactions while having the electromagnetic group $U(1)_{em}$ properly included within it.
+ 
+\subsection{The Higgs mechanism and the mass generation of the gauge bosons}
+
+Of the Gauge group we just defined we'll spawn 4 gauge fields named $A_\mu^i$ and $B_\mu$ corresponding respectively to the generators $I^i$ and $Y$. Through observations it was shown that these interact in a very short range requiring them to be massive vector bosons to mathematically describe the proper behaviour. 
+
+The solution that lead to the attribution of mass to these bosons came trough the mechanism of spontaneous symmetry breaking applied to the higgs field, and allowed for these 4 fields to be identified as the $W^\pm$ and $Z$ bosons after mixing with goldstones created by the broken symmetries, since the one boson must remains massless, the photon $A^\mu$,we know that only 3 symmetries must be broken, given this the minimal choise for the higgsfield would be a complex scalar doublet $\phi$ represented as 
+\begin{equation}
+\phi = \left( \begin{matrix}
+\phi^+ \\
+\phi^0 
+\end{matrix} \right)
+\end{equation}
+Where the "top"? part of the field is dedicated the to elements with charge while the lower part is neutral. 
+
+This field has weak isospin charge $I$ of $\frac{1}{2}$ and a hypercharge value of of $1$. This choise allows the breaking of the $SU(2)_L$ group and the $U(1)_Y$ group. The gauge sector in the SM is given by the Lagrangian
+\begin{equation}
+\mathcal{L}_gauge = (D_\mu \phi)^\dagger (D_\mu \phi) - V (\phi \phi^\dagger) - \frac{1}{4} F^i_{\mu \nu} F^{i , \mu \nu} - \frac{1}{4} B_{\mu \nu} B^{\mu \nu}
+\end{equation} 
+The elements of this sector being defined as 
+\begin{equation}
+V(\phi^\dagger \phi ) = \mu \phi^\dagger \phi + \lambda \phi^\dagger \phi
+\end{equation}
+\begin{equation}
+ F^i_{\mu \nu}= \partial_\mu A^i_\nu - \partial_nu A^i_\mu + g \epsilon_{ijk} A^j_\mu A^k_\nu 
+\end{equation}
+\begin{equation}
+B_{\mu \nu} = \partial_\mu B_\nu - \partial_\nu B_\mu 
+\end{equation}
+and finally the covariant derivative 
+\begin{equation}
+D_\mu = \partial_\mu - ig I_i A^i_\mu - ig^\prime \frac{1}{2} Y B_\mu 
+\end{equation}
+In this formulation the constants $g$ and $g^\prime$ are the gauge couplings of the groups $SU(2)_L$ and $U(1)_Y$, respectively, and since the fields of $SU(2)_L$ there is the additional term in the "ask" later 
+ 
+This potential was already approached, thus we know the conditions in witch we have a phase shift, namely $\mu < 0$ and what kind of VEV we are expected to find, namely
+\begin{equation}
+(\phi^\dagger \phi)= \frac{-\mu^2}{2\lambda} = \frac{1}{2} \nu 
+\end{equation} 
+Given that electrical charge must be conserved only the lower part of the field can be given a non-vanishing vev and it's indeed convinient to shift the field to the following minima choise, 
+\begin{equation}
+\phi_{min} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\
+\nu 
+\end{pmatrix}
+\end{equation}
+Now trough the choice of the appropriate unitary gauge we can lose the unnecessary 3 non-physical fields and remain with only the physical field that would originate the Higgs boson, Gauge fixing is a means to deal with unnecessary or additional superfluous degrees of freedom. 
+\begin{equation}
+\phi (x) \rightarrow \phi^\prime(x)= \frac{1}{\sqrt{2}} \begin{pmatrix}
+0 \\ 
+\nu + h(x) 
+\end{pmatrix}
+\end{equation}
+Turning the Gauge sector of the SM lagrangian into,
+\begin{align}
+\mathcal{L}^\prime = & \frac{1}{2} \partial_\mu h \partial^\mu h - \frac{1}{2} (2v^2 \lambda) h^2
+ - \frac{1}{4} F^i_{\mu \nu} F^{i , \mu \nu} - \frac{1}{4} B_{\mu \nu} B^{\mu \nu}  \\
+& + \frac{1}{8} \nu^2 g^2 (A^1_\mu A^{1,\mu}+ A^2_\mu A^{2,\mu}) +  \frac{1}{8} \nu^2  (g^2  A^3_\mu A^{3,\mu} + g^{\prime 2} B_\mu B^\mu - 2 g^2 g^{\prime 2} A^3_\mu B^\mu )
+\end{align}
+A few things become obvious first, we have a lot of mass terms most stemming from the squared gauge fields and a lonesome squared mass term belonging to the real scalar field we know to be the Higgs field, this makes the Higgs boson mass in the SM to be given by the equation 
+\begin{equation}
+M_h= (2v^2 \lambda)
+\end{equation}
+
+secondly due to the fact the fields here are mix means that to calculate it's real physical masses we will have to write this Lagrangian  in a different set of fields, think of these as a physical base where the real fields are given by it's Eigenvectors, where all the field are separate.
+
+First the fields that carry defined charge that can be easly shown to be 
+\begin{equation}
+W^\pm_\mu = \frac{1}{\sqrt{2}} (A^{(1)}_\mu) \pm i A^{(2)}_\mu
+\end{equation}
+meaning that the mass term coupled to the $W^+ W^-$ term is 
+\begin{equation}
+M_W= \frac{1}{2}\nu g
+\end{equation}
+The situation becomes a bit more complicated in the second term since we have diagonal terms in the expression meaning that to discover the physical eigenstates it is necessary to diagonalize the  system, 
+\begin{equation}
+\begin{pmatrix}
+A_\mu^3 && B_\mu
+\end{pmatrix} \cdot  \frac{1}{4} \nu ^2 \begin{pmatrix}
+g^2  & -g g^\prime \\
+-g g^\prime & g^{\prime 2} 
+\end{pmatrix} \cdot \begin{pmatrix}
+A_\mu^3 \\  B_\mu
+\end{pmatrix} 
+\end{equation}
+That results in 
+\begin{equation}
+\begin{pmatrix}
+A_\mu && Z_\mu 
+\end{pmatrix} \begin{pmatrix}
+0  & 0 \\
+0  & \frac{1}{2} \nu \sqrt{g^2 + g^{\prime 2}} 
+\end{pmatrix}  \begin{pmatrix}
+A^\mu \\ Z^\mu
+\end{pmatrix} 
+\end{equation}
+Where the new eigenvectors that represent the $Z$ boson and the photon, $A^\mu$ in terms of the former base are written as,
+\begin{align}
+A_\mu &=\cos(\theta_\omega) B_\mu + \sin(\theta_\omega) A_\mu^3 \\ 
+Z_\mu & =- \sin(\theta_\omega) B_\mu + \cos(\theta_\omega) A_\mu^3
+\end{align}
+Having introduced the weak mixing angle, $ \theta_\omega$, that is when writen in terms of the gauge couplings defined as, 
+\begin{equation}
+\cos(\theta_\omega)=\frac{g}{ \sqrt{g^2 + g^{\prime 2} }}
+\end{equation}
+Thus clearly showing the massless photon along with a massive Z boson with mass $M_Z= \frac{1}{2} \nu \sqrt{g^2 + g^{\prime 2}} $. 
+
+So we conclude our exploration of the electroweak sector with all the correct massive spectrum observed and it's origin discussed.
+
+\subsection{The fermion sector on the standard model}
+
+To be able to have the inclusion of fermions and quarks in the standard model it was necessary to add several terms to the electroweak part of the Lagrangian.
+ 
+Both the Leptons and Quarks we have right handed and left handed fields components assigned to diferent representations of $SU(2)_L \times U(1)_Y$. Left handed fields are assigned to doublets of $SU(2)_L$ and right handed fields are assinged to singlets of the same $SU(2)_L$.  
+
+To achive the right handed and left handed part of the fields we use the projection operators given by 
+\begin{equation}
+P_R = \frac{1+\gamma^\mu}{2} \quad \text{and} \quad  \frac{1-\gamma^\mu}{2}
+\end{equation}
+
+Fermions usealy have there kinetic and mass terms writen in the Lagrangian as 
+\begin{equation}
+\mathcal{L}_f = \Phi_f (i \gamma^\mu 
+\end{equation}
+
+Recall there are 3 generations of generations of letptons and quarks, we can check the charges associated to these fields on the table. 
+
+
+
+
+\section{The B-L-SM model}
+
+It is believed that a $Z^\prime$ boson (Zed prime) might be among the first new discoveries at the TeV scale. A particular array of literature incorporates this Z prime boson in what are called "non-exotic" or "non-anomalous" Minimal $Z^\prime$ model. These models are usually based on an extension of the Standard Model (SM) gauge group with some further U(1) symmetry factor. 
+
+In These models the anomaly cancellation conditions imply the addition of three generations of right-handed neutrinos in the fermion sector, while the subsequent breaking of the extended gauge group provided by an extra singlet Higgs boson, extending the electroweak group's dimensions and generating a massive eigenstate that we'll call the  $Z^\prime$ boson. 
+
+Hence we set out to study the minimal B-L-SM model, a model that not only imcorporates the new Z prime boson but also explains the previously mentioned non vanishing neutrino masses.
+
+As we'll see the addition of the single field will also add a new member in the gauge sector, this gauge field $B^\prime$ will have a specific gauge coupling we'll denote as $g_1^\prime$ but due to mixing/nature of the gauge sector we'll also add a mixing gauge coupling term called $\tilde{g}$. 
+
+Given this the goal of this section will be to explore the fermion, gauge and scalar sectors of the BLSM.   
+
+The model is heavy based on the standard model we just discussed so large portions of it are simply the same.
+
+The B-L-SM model obeys  the gauge symmetry based on the group, $ SU(3)_C  \times SU(2)_L \times U(1)_Y \times U(1)_{B-L}$.  This is model can be decomposed into sectors equivalently to the same sectors of the SM, like in the SM there are 4 sectors. 
+
+These are, the Yang-Mills or gauge sector, the scalar sector, the fermionic sector and the yukawa sector. 
+
+\begin{equation}
+\mathcal{L}=\mathcal{L}_{YM}+\mathcal{L}_s+\mathcal{L}_f+\mathcal{L}_Y
+\end{equation}
+
+In this model the charges remain the same across all fields, expect with the addition of the charge associated to the $U(1)_{B-L}$ symmetry, $Y_{B-L}$, we'll treat the simplest model where this charge is 0 for the SM higgs field and +2 for the new $\chi$ complex scalar singlet, this is done to retain invariance in the Yukawa terms. All charges can be seen in the following table.  
+
+This stated the covariant derivative would be, 
+
+\begin{equation}
+D_\mu = \partial_\mu + igT^\alpha G^\alpha_\mu + igT^\alpha W^a_\mu + ig_1YB_\mu + i(\tilde{g}+g^\prime Y_{B-L})B^\prime_\mu 
+\end{equation}
+
+
+\subsection{The scalar sector}	
+
+Given that we know the quantum numbers of every field and hence the covariant derivative we'll move on to the scalar and gauge sector that as we discussed is expanded from it's SM counterpart with a new scalar singlet field called $\chi$ as given by. The scalar section and gauge section of the Lagrangian stem from, 
+
+\begin{equation}
+\mathcal{L}_s = (D^\mu H)^\dagger (D_\mu H) + (D^\mu \chi)^\dagger (D_\mu \chi) - V(H,\chi)
+\end{equation}
+ 
+We mentioned that the Higgs mechanism works the same but we'll also the the new field $\chi$ acquires a VEV in the TeV scale. 
+
+However to properly examine the spontaneous symmetry breaking of the model we first must like in the SM ensure that the potential is bound from bellow allowing for continuous a spectrum of energy states. The potential is given by, 
+
+\begin{equation}
+ V(H,\chi) = m^2 H^\dagger H +  \mu^2 |\chi|^2 + \begin{pmatrix}
+  H^\dagger H && |\chi|^2 \end{pmatrix}  \begin{pmatrix}   
+  \lambda_1 && \frac{1}{2}   \lambda_2 \\
+  \frac{1}{2}   \lambda_2   && \lambda_3
+ \end{pmatrix} \begin{pmatrix}
+   H^\dagger H \\ |\chi|^2 
+ \end{pmatrix}
+\end{equation}
+
+This matrix we see in the potential equation is simply a way to express the self interactions terms in a more visual manner than it's standard quadratic expressions. To ensure the potential is bound from bellow we must ensure that the determinant of this matrix is positive, witch leads to the following restraints on these couplings. 
+
+\begin{equation}
+4 \lambda_1 \lambda_2  -  \lambda_3^2 > 0 \quad , \quad \lambda_1 , \lambda_2>0
+\end{equation}
+
+
+We'll return to these conditions later, but having this done we can examine the $\mathcal{L}_s$ components around the vev to observe the symmetry breaking effects, first we must define the vev's that $\chi$ and $H$ will take. 
+
+
+\begin{equation}
+H= 
+\begin{pmatrix}
+\phi^+ + i  \phi^-  \\
+\phi^0_1 +i  \phi_2^0 
+\end{pmatrix}
+\overset{Electroweak VEV}{\Rightarrow}
+\begin{pmatrix}
+0  \\
+\frac{1}{\sqrt{2}}(v+h(x))
+\end{pmatrix}
+\end{equation}
+and
+\begin{equation}
+\chi= 
+\begin{pmatrix}
+\chi
+\end{pmatrix}
+\overset{"new" VEV}{\Rightarrow}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}}(x+h^\prime)
+\end{pmatrix}
+\end{equation}
+
+Where $v$ and $x$ are both positive real numbers. Solving the scalar Lagrangian after the symmetry breaking equates to, 
+Expanding these terms we obtain 2 massive eigenstates, one we'll atribute to the recently discovered massive higgs boson but the existence of a second massive state associated to a another quadratic term means that a scalar particle much like the higgs boson is still to be discovered. The massive eigenvalues for the system once we diagonalize the physical base leads us to the following relations for the mass terms squared. 
+
+\begin{equation}
+m_{h_1}^2 = \lambda_1 v^2 + \lambda_2 x^2 - \sqrt{(\lambda_1 v^2 - \lambda_2 x^2)^2 + (\lambda_3 x v)^2}
+\end{equation}
+
+\begin{equation}
+m_{h_2}^2 = \lambda_1 v^2 + \lambda_2 x^2 + \sqrt{(\lambda_1 v^2 - \lambda_2 x^2)^2 + (\lambda_3 x v)^2}
+\end{equation}
+
+
+Solving such equations in order to the vacuum values leads to the set of equations for them
+
+\begin{equation}
+v^2 	=\frac{-\lambda_2 m^2 + \frac{\lambda_3}{2} \mu^2}{\lambda_1 \lambda2 - \frac{\lambda_3 }{2}} 
+\end{equation}
+\begin{equation}
+x^2 	=\frac{-\lambda_1 \mu^2 + \frac{\lambda_3}{2} m^2}{\lambda_1 \lambda2 - \frac{\lambda_3 }{2}} 
+\end{equation}
+
+Along with these restrains we must also satisfy the conditions stated before to have the potential bound from bellow, combining these leads to
+
+\begin{equation}
+\lambda_2 m^2 < \frac{\lambda_3}{2} \mu^2  \quad \text{and} \quad  \lambda_1 \mu^2 < \frac{\lambda_3}{2} m^2
+\end{equation}.
+
+This final equation explains something you might have noticed just earlier, namely that $\lambda_1$ and $\lambda_2$ could be both negative and allow for the potential to be bound from bellow, however given the following relations those solutions would lead to both $\mu^2$ and $m^2$ being negative numbers, and therefore unphysical. 
+
+
+\subsubsection{Gauge eigenstates}
+
+To determine the gauge boson spectrum, we have to expand the scalar kinetic terms again as we did for the SM. We expect that there still exists a massless gauge boson, the photon, whilst the other gauge bosons become massive this is done in the exact same way as before, note that since the extension we are studying is in the Abelian sector of the SM gauge group, so the charged gauge bosons $W^\pm$ will have masses given by their SM expressions, being related to the $SU(2)_L$ Things change however when we examine the terms that would relate to the $Z$ boson,
+Firstly let's expand the the Lagrangian Kinetic terms, 
+
+\begin{align}
+\begin{split}
+(D^\mu H)^\dagger (D_\mu H) + (D^\mu \chi)^\dagger (D_\mu \chi)  = & \frac{1}{2} \partial^\mu h \partial_\mu h 	+ \frac{1}{2} \partial^\mu h^\prime \partial_\mu h^\prime \\ & + \frac{1}{8} (h+v)^2 \left[ g^2 [W_1^\mu - i W_2^\mu ]^2 + \left( gW^\mu_3 - g1B^\mu - \tilde{g} B^{\prime ,\mu}\right)^2   \right] \\  & + \frac{1}{2} (h^\prime +x)^2 (g^\prime_1 2  B^{\prime, \mu})^2
+\end{split}
+\end{align}
+
+Remember that $Y_{B-L}=-2$ for the $\chi$ field. As we can see the other gauge boson masses are not so simple to identify, because of mixing. we need to find the eigenvalues and vectors of the mixed system, this is easier to shown using mixing angles, one is the old weiberg/weak mixing angle and the other is a new mixing angle that affects only the $Z$ and the $Z^\prime$ boson. 
+
+\begin{equation}
+\begin{pmatrix}
+B^\mu \\
+W_3^\mu \\
+B^{\prime, \mu}
+\end{pmatrix}=\begin{pmatrix}
+\cos(\gamma_\omega) && -\sin(\gamma_\omega) \cos(\gamma^\prime) && \cos(\gamma_\omega) \sin(\gamma^\prime) \\ 
+\sin(\gamma_\omega) && \cos(\gamma_\omega) \cos(\gamma^\prime) && -\cos(\gamma_\omega) \sin(\gamma^\prime) \\ 
+0 && \sin\gamma^\prime) && \cos(\gamma^\prime)
+\end{pmatrix} \begin{pmatrix}
+ A^\mu \\ 
+ Z^\mu \\
+ Z^{\prime,\mu} \\
+\end{pmatrix}
+\end{equation}
+
+With $\frac{-\pi}{4} < \gamma^\prime < \frac{\pi}{4}$ such that we can define the new mixing angle: 
+\begin{equation}
+\tan(2\pi) = \frac{2 \tilde{g} \sqrt{g^2 + g^2_1}}{\tilde{g}^2 + 16 (\frac{x}{y})^2 g^{\prime,2}- g^2 - g^2_1}
+\end{equation}
+The eigenvalues of the system in the physical base would then represent the scare masses leading to the equations 
+\begin{equation}
+M_A=0 
+\end{equation}
+\begin{equation}
+M_{Z,Z^\prime}=\sqrt{g^2 + g^2_1} \cdot \frac{v}{2} \left[ \frac{1}{2} \left( \frac{\tilde{g}^2 + 16 (\frac{x}{y})^2 g^{' 2}_1}{g^2 + g^2_1} +1  \right) \pm \frac{\tilde{g}}{\sin(2 \gamma^\prime) \sqrt{g^2 + g^2_1}} \right]
+\end{equation}
+The LEP experiments constrain $| \gamma^\prime |$ to bellow $10^{-3}$. Present constraints on the VEV x allow a generous range of values along the TeV scale. 
+
+
+\subsection{Fermion sector and mass generation for the neutrinos}
+The fermionic Lagrangian in this model is
+\begin{align}
+\mathcal{L}_f = \sum_{k=1}^{3}  & ( i \overline{q_{kL}} \gamma_\mu D^\mu q_{kL} + \overline{u_{kR}} \gamma_\mu D^\mu u_{kR} 
+ +   i \overline{d_{kR}} \gamma_\mu D^\mu d_{kR}  \\  &  + i \overline{l_{kL}} \gamma_\mu D^\mu l_{kL} + i \overline{e_{kR}} \gamma_\mu D^\mu  e_{kR} + i \overline{\nu_{kR}} \gamma_\mu D^\mu \nu_{kr} )
+\end{align}
+The charges belonging to these sectors are how've seen in the table are the same as in the SM with $\frac{-1}{3}$ in $Y_{B-L}$ for quarks and $-1$ for leptons with no distinction between generations, hence ensuring universality 
+
+This sector interactions should be mostly the same as in the Standard Model however we'll see that in the yukawa section we'll have the addition of several heavy right handed neutrino fields, and the lighter left handed neutrinos that we'll have coupled to the Higgs Field and the new $\chi$ field.  
+
+\begin{align}
+\mathcal{L}_Y= & -y^d_{jk}\overline{q}_{jL} d_{kR} H - y_{jk}^u \overline{q}_{jL} u_{kR} \tilde{H} - y^e_{jk} \overline{l}_j e_{kR} H \\ & -  y^\nu_{jk}\overline{l}_{jk} \nu_{kR} \tilde{H} - y^M_{jk}\overline{\nu_R}^c_j v_{kR} \chi + h.c.
+\end{align}
+Here we have $\tilde{H}=i\sigma^2 H^* $ and $i$ $j$ $k$ are values ranging from 1 to 3.  These are the only allowed gauge invariant terms. In particular, the last term couples the
+neutrinos to the new scalar singlet field, $\chi$ , and it allows for the dynamical generation of neutrino masses, as $\chi$ acquires a VEV.
+
+Neutrino mass eigenstates, obtained after applying the see-saw mechanism, with a reasonable choice of Yukawa couplings, the heavy neutrinos can have masses $m_{v_h}  \sim \mathcal{O}(100) GeV$
+
+In the last line of this equations we see the Majorana and dirac masses for the right and left  handed respectively. 
+
+To extract the neutrino masses we have to diagonalise the neutrino mass matrix taken from the couplings in the Lagrangian. 
+
+\begin{equation}
+\mathcal{M}=\begin{bmatrix}
+0 && m_D \\
+m_D && M 
+\end{bmatrix}
+\end{equation}
+where  
+\begin{equation}
+m_D=\frac{y^\nu}{\sqrt{2}} v  
+\end{equation}
+\begin{equation}
+M=\sqrt{2} y^M x  
+\end{equation}
+If we ignore inter-generational mixing allowing for each neutrino generation to be diagonalised  independently. Thus, $\nu_L$ and $\nu_R$  can be written as the following linear combination of Majorana mass eigenstates 
+
+\begin{equation}
+\begin{pmatrix}
+\nu_L \\
+\nu_R 
+\end{pmatrix}= \begin{pmatrix}
+\cos(\alpha_\nu) && -\sin(\alpha_\nu) \\
+\sin(\alpha_\nu) && \cos(\alpha_\nu)
+\end{pmatrix}= \begin{pmatrix}
+\nu_l  \\
+\nu_h
+\end{pmatrix} 
+\end{equation}
+Where we have defined the mixing angles to be 
+\begin{equation}
+\tan(\alpha_\nu)=-\frac{2m_D}{M}
+\end{equation}
+This makes the real masses for light and heavy neutrinos to be approximately given by,
+\begin{equation}
+m_{\nu_l} \approx m_D^2 , 
+\end{equation}
+\begin{equation}
+m_{\nu_h} \approx M
+\end{equation}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\hline
+ $\phi$& $q_L$  & $u_R$ & $d_R$ & $l_L$  & $e_R$ & $\nu_R$  &  $H$  & $\chi$  \\ \hline
+ $SU(3)_c$& 3 & 3 & 3 & 1 & 1 & 1 & 1  & 1  \\
+ $SU(2)_L$& 2  & 1 & 1 & 2 & 1 & 1 & 2  & 1 \\
+$Y$ & $\frac{1}{6}$ & $\frac{2}{3}$  & $\frac{-1}{3}$  & $\frac{-1}{2}$ & -1 & 0 & $\frac{1}{2}$ & 0 \\
+$B-L$ & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{3}$  & -1  & -1 &-1  & 0  & 2  \\ \hline
+\end{tabular}
+\end{table}
+\section{Data analysis}
+
+\subsection{Software}
+During the course of this essay we ignored the discussion of any in-depth quantum field theory or quantum phenomena while applied  corrections and the discussion in depth of quantum field theory we didn't approach anything like renormalization of our model. 
+
+However if we wish to examine the acurate physical constraints on our model and study if it is actually a viabile way to describe reality we need to perform the adequate quantum physics. 
+
+We'll avoid a extensive discussion of quantum field theory applied to our model we used a number of computer calculation tools that test the constraints the viability of our model by a indirect approach. 
+
+To make such study the computer tools used where SARAH, SPheno, HiggsBounds, HiggsSignals and SSP, we'll shortly discuss what these programs main functions are and what they were used for in the context of our work. 
+
+SARAH Is the first program we'll discuss, it is a freely available Mathematica package created for the development study of particle models particle models. It is also incredibly convenient that the BLSM model is included within the SARAH package as a model template, meaning that it was not necessary to write a input model for this model. 
+
+% Fundamentally it extracts all analytical properties of the given model like two-loop renormalization group equations, tadpole equations, mass matrices and vertices it makes SARAH the most important tool for the development.
+
+Sarah can provide outputs in a series of formates some of these outputs are desinged to serve as input for other packages and programs. We'll use one of  SARAH outputs desinged to be inputed into SPheno.
+ 
+
+SPheno stands for Super-symmetric Phenomenology, it is a Fortran90 code designed to numericaly calculate all parameters associated to a given particle model, from decay rates to low energy observables all the while taking in considerantion the apropriate quantum corrections, this  last option is somewhat custumizable. 
+
+We'll use this code to study the dependency and behaivor of our model with difrent sets of variations on phemenological constants.
+
+%Spheno and based on fixed parameters verified trough low energy data to attempt to solve and create a physical spectrum.
+
+This physical spectrum will be inputed into two other programs that will give us aditional data, these are the computer tools HiggsSignals and HiggsBounds. They are also fortran codes whose goal is to output phenomological data such as the exlucsion rate of our higgs particle and the singal strenght and main decay paths for respectivly.
+
+To go further indepth into the steps behind a spectrum calculation and to touch without going into too much mathematical detail on what exacly we mean by quantum field corrections, we'll discuss every major step from the very begining of our model formulation to the latest stage where we test the exclusion of our higgsboson, a visual representations of these steps can be seen in \cite{Prog}.
+
+First we meantioned that SARAH comes with a example that descrives the B-L-SM model, this template is in fact split into 4 files. It is included along with many others due to the fact that a lot of other models incorporate tweeked versions of this model as a low energy description. (pergutar depois mais info)
+
+Inside 1 of these input files we descrevies all the "physical" information relating to the B-L-SM model. In these we explicitly descrive the fields predicted, like gauge, fermion fields ect, how they should interact and what are there corresponding charges along the also inputed symmetries, also inputed is the Lagrangian before symmetry breaking the fields that will aquire a VEV, SARAH handles the process SSB by herself. 
+The other inputs files are almost exclusivly used for  designitation purposes, naming all the particles fields one of witch is reserved for SPheno, where it's defined how the LesHouches file is formulated.  
+
+We mentioned SARAH handles the process of SSB by herself but there is a lot more she generates asides from just the physical Lagrangian. 
+
+First it checks for a possible wrong formulation of the model, checking first for gauge anomalies and charge conservation. If problems are detected SARAH will inform in the user in most cases but sometimes this invalidades the model as we'll soon see.  
+
+Since we are not discussing emerging physical thoeries like supersymmetry it is sufficient to say that in most cases gauge anomalies are a fenomena that surges at the one loop level they consist of a failure of a gauge symmetry trough the apperance of a massive gauge boson in a intermediate state inside the particle interaction, if this happens the symmetry will be broken at the first loop level generating a anomaly. These are usealy to be avoided at low energy since they would've been dected but SARAH is capable of incorporating them into the models she outputs in most cases. 
+
+
+%\newpage
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth , height=22.5cm,keepaspectratio]{i3.png}
+\caption{A diagram showing in schematic form the procedure for the computer calculation of model observable trough the programs discussed}
+\label{Prog}
+\end{figure}
+
+The same can't be said for charge conservation, when it is detected that a specific term isn't conservating it's charge across all symmetries it would likely to result in the cathosphric destuction of the model and even doe SARAH can be asked to continue calculations it's recomemended to attempt to fix this error if it occurs. 
+
+After this "check-up" is made and the input files are correcly loaded without errors SARAH begins deriving the expressions relating to the model RGE's and the Lagrangian after SSB. 
+
+RGE stands for Renomalization Group Equation it is the derived relationship bettewn the physical paramaters like couplings and self interaction terms and the energy scale of the system.
+
+After these are calculated SARAH computes the mass matrices and derive the expression for tadpole equations and all other phenomena whose members have contributions to the correlation functions.
+
+A tadpole is a sinlge loop feynman diagram with one extrernal leg, this can be calculated at several loops, while the correlation function is functional average of n fields at diferent positions and times, in the simplest case for it's physical meaning can be interpreted as the amplitude for propagation of a particle or excitation between y and x. 
+
+This means deriving the physical expressions of all feynman diagrams in the model at 1-loop.
+ 
+These expressions are outputed later to be used for SPheno.
+And so we transition to SPheno, to solve SARAH's output SPheno needs to inputed inicial values at a defined energy scale, low or high, given this it will use iterative methods to attempt to reach a stable configuration of parameters, to reach said convergence SPheno uses a large set of conditions like low energy observables whose mass has been confirmed like the z and w boson masses.
+
+Upon reaching conservence conditions SPheno checks the physical spectrum for unphysical parameters like negatives masses and if all is inside the realm of possibilties it prints out the full spectrum of particles as a output. 
+
+This output is later transfered to HiggsBounds and HiggsSignals. Firstly we'll discuss HiggsBounds, it takes all the information regarding the Higgs Bosons and the higgs sector and checks it against a large library of experimental data to confirm the probably of being exclided or not based on production rates. While Finish later
+
+\subsection{Results}
+\subsubsection{Higgs Sector Search}
+\subsubsection{Gauge Sector Study} 
+\subsubsection{Neutrino Hiearchy and mass study}
+
+
+
+\bibliographystyle{apacite}
+\bibliography{References}
+
+\end{document}

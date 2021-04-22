@@ -1,0 +1,63 @@
+\begin{align}
+\mathcal{L}_y = & y^d 
+\begin{pmatrix}
+u_L & d_L 
+\end{pmatrix} d_R 
+\begin{pmatrix}
+0\\ v + h(x)
+\end{pmatrix} + 
+y^s 
+\begin{pmatrix}
+c_L & s_L 
+\end{pmatrix} s_R 
+\begin{pmatrix}
+0 \\ v + h(x)
+\end{pmatrix}
+ y^b 
+\begin{pmatrix}
+t_L & b_L 
+\end{pmatrix} b_R 
+\begin{pmatrix}
+0 \\ v + h(x)
+\end{pmatrix}  \nonumber  \\ + &  
+ y^u 
+\begin{pmatrix}
+u_L & d_L 
+\end{pmatrix} d_R 
+\begin{pmatrix}
+v + h(x) \\ 0
+\end{pmatrix} + 
+ y^c 
+\begin{pmatrix}
+c_L & s_L 
+\end{pmatrix} d_R 
+\begin{pmatrix}
+v + h(x) \\ 0 
+\end{pmatrix}
+y^t_ 
+\begin{pmatrix}
+t_L & b_L 
+\end{pmatrix} t_R 
+\begin{pmatrix}
+ v + h(x) \\ 0
+\end{pmatrix}  \\ 
+ +  & y^e 
+\begin{pmatrix}
+\nu_{e_L} & e_L 
+\end{pmatrix} e_R 
+\begin{pmatrix}
+0 \\ v + h(x)
+\end{pmatrix}  + y^\mu 
+\begin{pmatrix}
+\nu_{\mu_L} & \mu_L 
+\end{pmatrix} \mu_R
+\begin{pmatrix}
+0 \\ v + h(x)
+\end{pmatrix}  + y^\tau \
+\begin{pmatrix}
+\nu_{\tau_L} & \tau_L 
+\end{pmatrix} \tau_R 
+\begin{pmatrix}
+0 \\ v + h(x)
+\end{pmatrix} + h.c  \nonumber
+\end{align}

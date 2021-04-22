@@ -1,0 +1,334 @@
+\documentclass[11pt,twoside,a4paper]{article}
+
+\usepackage{afterpage}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry} 
+\geometry{a4paper} 
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{comment}
+\usepackage{booktabs} 
+\usepackage{array}    
+\usepackage{paralist} 
+\usepackage{verbatim}
+\usepackage{subfig}   
+\usepackage{fancyhdr} 
+\pagestyle{plain}    
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} 
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold 
+\usepackage{apacite}
+
+
+\begin{document}
+\chapter{The Standard Model}
+\section{Introduction}
+
+The SM is the presently accepted quantum field theory describing strong and electroweak interactions, and has been successfully tested in a number of experiments The SM is a gauge theory, based on the group
+
+\begin{equation}
+SU(3)_c \times SU(2)_L \times U(1)_Y \quad  ,
+\end{equation}
+
+From here the complete all the vector particles emerge, the standard model is comprised by, fermion fields whose interactions will lead to chromodynamics and form the "matter" particles we are more familiar with, the electroweak boson fields $W_1$, $W_2$ ,$W_3$  and $B$, gluon fields and the Higgs Field. 
+
+
+\begin{comment}
+\begin{equation}
+D_\mu = \partial_\mu - i g_S \tau^a G^a_\mu - i g T^i W^i_\mu - i g' Y B_\mu 
+\end{equation}
+
+Where $\tau^a$ where $\tau^a= \frac{\lambda_a}{2}$ , $(a = 1, . . . , 8)$ are the generators of $SU (3)_c$, $T_i= \frac{\sigma_i}{2} $, $(i = 1, 2, 3)$ are the generators of $SU(2)_L$ and Y is the generator of $U(1)_Y$. Here the symbols $\lambda_a$ and $\sigma_i$ represent the Gell-Mann and Pauli matrices respectively. We'll during this chapter show how this particular derivative arises from the physical constraints of our theory. 
+\end{comment}
+
+
+\subsection{The Spontaneous Symmetry Breaking Mechanism and Goldstone's Theorem} 
+Having dealt with the fundamentals of field theory and having dealt with the concepts of symmetry and groups let's begin our discussion of the standard model by examining the scalar sector. 
+
+In this sector we observe the now somewhat well known spontaneous symmetry breaking mechanism. We could very briefly describe this mechanism as the "natural" breaking of a symmetry by spontaneous occurring phenomena in particle physics, just to clarify that we will not be adding any terms or interactions that would directly break the symmetry. 
+
+In quantum field theory it is possible for a system to have a non zero minimum value, coupled with with statical mechanics means that indeed it is possible to have a non zero expected global value for a given Field.
+
+When a physical fields takes a non zero value might it might have a direction or orientation. A example of unrelated physical field displaying such behaviour could be exemplified as the magnetic field of a ferromagnetic material, it naturally tends to a configuration with a non zero orientation giving it a natural magnetic field.  
+
+This directional character of the system expected value can in some cases break a previously held symmetry by the system this is what is called a case of Spontaneous Symmetry breaking, to examine this we'll be starting off with a simple example of a scalar theory. Consider the Lagrangian of a $\Phi^4$ complex scalar theory.
+
+\begin{align}
+\mathcal{L} & =T - V \\ 
+\mathcal{L} & =(\partial_\mu \Phi)^* ( \partial^\mu \Phi) -  \mu^2 (\Phi^* \Phi) - \lambda (\Phi^* \Phi)^2
+\end{align}
+
+Here $\lambda$ is the term is the self interaction that must be a positive value ($\lambda > 0$) to allow for a spectrum of stable bound states and $\mu$ is a real value.
+
+This Lagrangian is invariant under global unitary transformations belonging to the U(1).
+
+\begin{equation}
+\phi^\prime \rightarrow e^{i\alpha} \phi \quad  , \quad \phi^{* \prime}=e^{-i \alpha} \phi^* \quad ,
+\end{equation} 
+
+where $\alpha$ is a real value. This is easily be proven due to the fact that all fields are in some form of even power. 
+
+\begin{align}
+\mathcal{L} =& \frac{1}{2}(\partial_\mu \Phi^{\prime \, *} \partial^\mu \Phi^{\prime} ) +  \mu^2 \Phi^\prime \Phi^{\prime \, *} - \frac{1}{4} \lambda (\Phi^\prime \Phi^{\prime \, *})^2	\\
+\mathcal{L} =& \frac{1}{2}e^{i(\alpha-\alpha)}(\partial_\mu \Phi^{*} \partial^\mu \Phi ) +  e^{i(\alpha-\alpha)} \mu^2 \Phi \Phi^* - \frac{1}{4} \lambda (e^{i(\alpha-\alpha)})^2(\Phi \Phi^{*})^2	\\
+\mathcal{L} =& \frac{1}{2}(\partial_\mu \Phi^{*} \partial^\mu \Phi^{*} ) +  \mu^2 \Phi \Phi^* - \frac{1}{4} \lambda (\Phi \Phi^{*})^2	\\
+\end{align} 
+
+For now let's treat $\phi$ as a field comprised by two continuous free parameter, we can examine the potential portion of the Lagrangian
+
+\begin{equation}
+V(\Phi)=  \frac{1}{2} m^2 \Phi \Phi^* - \lambda (\Phi \Phi^{*})^2
+\end{equation}
+
+Seeking to analyse it's ground state, in the case of $\mu > 0$ the potential is simply a parabola with it's minima in 0 however,with a directional symmetry and a phase symmetry around it's minima however were we to say $\mu$ is a negative number something very interesting would happen, the minimum condition,
+
+\begin{align}
+\frac{\partial V(\Phi)}{\partial \Phi} & = 0 \\
+2  \mu |\Phi|+ 4 \lambda |\Phi|^3 & = 0 
+\end{align}
+
+Now returns a equation for a different minima has we see (bellow) and zero now is now a relative maximum of the potential  
+
+\begin{equation}
+|\phi|^2_{min} = -\frac{\mu}{2 \lambda}
+\end{equation}
+
+This value will be called the fields vacuum expectancy value or VEV. This minima is a continuous set of solutions that can be written in it's radial form, 
+
+\begin{equation}
+\phi_{min} = |\phi|_{min}  e^{i\gamma}
+\end{equation}
+(maybe insert here a image??) 
+
+This minima represent a set of degenerate vacuum states, to the observant eyes it's clear one symmetry of the potential is now broken by this change, we can see by examining both the potentials that in both cases we have phase invariance but in the case where $\mu$ is negative we no longer have radial invariance around the VEV. 
+
+We can see this easily if we shift the field into the minima, and considering the phase is irrelevant we'll take the particular solution where $\gamma$ is zero to simplify the mathematics. So the shift can be written as transforming the previous field. 
+\begin{align}
+\Phi(x) & \longrightarrow \Phi^\prime (x) \\
+\frac{1}{\sqrt{2}} \left( \phi_1 (x) + i \phi_2 (x) \right) & \longrightarrow  \frac{1}{\sqrt{2}} \left( \eta(x) + v + i \epsilon(x) \right) 
+\end{align}
+Where $\nu$ is $\sqrt{-\frac{\mu}{\lambda}}$. Now plugging this new field into the Lagrangian returns a equivalent physical description of dynamics, we simply changed the fields in witch it is expressed, $\mathcal{L} \equiv \mathcal{L}^\prime$.  
+
+\begin{equation}
+ \mathcal{L}^\prime = \frac{1}{2} \partial_\mu \epsilon(x) \partial^\mu \epsilon(x) + \frac{1}{2}\partial_\mu \eta(x) \partial^\mu \eta(x)  - \frac{1}{2} ( 2\mu ^2)  \eta^2 - \frac{1}{4} \lambda (\epsilon^2 + \eta^2)^2 - \lambda  \nu  (\epsilon^2 + \eta^2) \eta
+\end{equation}
+
+Comparing this new Lagrangian density and the former we see that while in the former we had a squared mass term with $\mu^2$ for both $\phi_1$ and $\phi_2$ now in this new redefinition we only have one mass term in $\eta$ with squared mass equal to $ m^2_\eta = - 2 \mu^2 = 2 \lambda \nu $ and a massless scalar field $\epsilon$.
+
+The physical meaning of these fields then is, that $\eta$ represents the quantum excitations, above the constant background value along the radial direction while the field epsilon represents the excitations along the curvature of the potencial, the fact that the potential doesn't change along this type of movement being reflected by it being a massless scalar field. 
+
+So in summation what we just observed discussed is that when $\mu$ changes from a positive number to a negative number what we observe is that the system goes trough a phase transition. A phase transition where the previous existing symmetry U(1) is broken as a concequence the previous conserved quantities stemming from a application of noether's theorm to this symmetry are no longer conserved. 
+
+This change that $\mu$ goes trough, going from positive to negative is quite similar to what happens as a  consequence of the renormalization procedure at energies under the electroweak scale for the Higgs field a process that we'll explore later and that leads to the mass generation for the electroweak $W^\pm$ and $Z$ bosons in the standard model.
+
+The massless particle that appeared in our example is a direct consequence of Goldstone's theorm and is usually called a Goldstone boson. The theorem states that when in a system with a certain number of linearly independently continuous symmetries has a number of these spontaneously  broken the same number of  massless particles will appear in the system. 
+
+\subsubsection{The Gauge Group and Quantum Electrodynamics}
+
+In the previous chapter we discussed a particular case on a simple complex scalar Lagrangian called a global transformation where the entirety of the field was changed by a constant phase given by the symbol $\alpha$.
+
+%duvida? qual é o gerador num grupo de transformaçao global
+
+This symmetry would imply that the choice of phase is irrelevant when studying the field. The objective of this chapter is to show that by restraining this phase change to be coherent with the limitations of relativistic theories, this is that the phase change can't be applied everywhere instantly, translating in changing the phase applied to a particular transformation on a field is done locally with $\alpha$ now being a function of space-time. 
+
+Trying to maintain the symmetry after this constraint is formally known as the promoting the global symmetry to a local symmetry, to do so requires as we'll see the addition of a field known as a gauge field. It can then be shown that electromagnetism stems naturally from gauge fields connected to scalar fields, but we are getting a bit ahead of ourselves, examine the following local transformations. 
+\begin{equation}
+\phi(x) \rightarrow e^{i \alpha (x)} \phi (x) \quad , \quad \phi(x)^* \rightarrow e^{-i \alpha (x)} \phi (x)*  \quad ,
+\end{equation}
+ 
+Applying this transformation to the former Lagrangian density seen in the complex scalar theory we can see that the derivative terms are not invariant, those particular terms are transformed into. 
+
+\begin{align}
+\partial_\mu \Phi^\prime \rightarrow &  \partial_\mu \left(e^{i \alpha(x)} \Phi \right) = e^{i \alpha \left(x\right)}.\left( i (\partial_\mu \alpha )  \Phi + \partial_\mu \Phi \right) \\
+\partial_\mu \Phi^{\prime \ *} \rightarrow &  \partial_\mu \left( e^{-i \alpha \left(x \right)} \Phi^* \right) =  e^{-i \alpha \left(x \right)}.\left(  -i (\partial_\mu \alpha )  \Phi^* + \partial_\mu \Phi^* \right)
+\end{align}
+
+To reattain invariance under gauge transformations we have to introduce directly a new 4-vector the gauge field $A_\mu$ and 3 new terms in the Lagrangian.
+
+For reasons we won't delve into this field does, and has to conserve invariance, to keep the action invariant as. 
+\begin{equation}
+A_\mu^\prime \rightarrow A_\mu \frac{1}{q} \partial_\mu \alpha \left(x \right) 
+\end{equation} 
+The first and second terms added are 
+
+\begin{align}
+\mathcal{L}_1 & =  -q \left( \Phi^* \partial_\mu \Phi  - \Phi \partial_\mu \Phi^* \right) A_\mu \\
+\mathcal{L}_2 & =  q^2  A^\mu A_\mu \Phi \Phi^* 
+\end{align}
+
+ In addition to these terms it's also added a third term to the Lagrangian that is gauge invariant and defines the curl of the gauge field, $F_{\mu \nu}$. 
+
+  Now if we write the new Lagrangian 
+ \begin{align} 
+  \mathcal{L}_{tot}= & \mathcal{L}_0+\mathcal{L}_1+\mathcal{L}_2+\mathcal{L}_3 \\
+  \mathcal{L}_{tot}= & (\partial_\mu \Phi)(\partial^\mu \Phi^*) - iq(\Phi^* \partial^\mu \Phi - \Phi \partial^\mu \Phi^* )A_\mu + q^2 A_\mu A^\mu \Phi^* \Phi - m \Phi^* \Phi - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} \\ 
+  \mathcal{L}_{tot}= & (\partial_\mu \Phi + iq A_\mu \Phi)(\partial^\mu \Phi^* - iq A^\mu \Phi)- m^2 \Phi^* \Phi  - \frac{1}{4} F^{\mu \nu} F_{\mu \nu} \\
+  \mathcal{L}_{tot}= & D_\mu \Phi D^\mu \Phi^*  - m^2 \Phi^* \Phi  - \frac{1}{4} F^{\mu \nu} F_{\mu \nu}
+ \end{align}
+ With this addition the total Lagrangian is now invariant. If we examined the result of this addition we now see that the complex field $\Phi$ was coupled to the gauge field we introduced. We also redefined the new covariant derivative operator, $D_\mu$. Given that $F_{\mu \nu}$ is the electromagnetic field tensor we have just shown that the electromagnetic Field appears seamlessly from the necessity for a scalar  field to be gauge invariant under local transformations. 
+
+\subsection{The unification of the electromagnetic group with the weak interaction group}
+
+The present theory  of electro-weak interaction is a gauge theory based on the mechanism of spontaneous symmetry breaking involving the Higgs fields like we mentioned before. We'll try to approach and justify the connection between the weak force and the electromagnetic force trough the group, $SU(2) \times U(1)$ and expose how the gauge bosons that mediate the weak interaction and later demonstrate how they achieve a non zero mass.
+
+Before continuing consider that we know of 6 observed quarks (u,d,s,c,b,t) having each assigned a flavour and one of 3 different colors. The leptons do not carry color, not participating in strong interactions but being present in the weak interaction, there exist 3 families of leptons ($L_e$,$L_\mu$,$L_\tau$), distinguished by there lepton number, in each of these having a charged and not charged variant, the charged being electrons muons and taus ($e^-$,$\mu^-$,$\tau^-$) and the neutral ones being the corresponding neutrinos.     
+
+The part of the Lagrangian in the SM that describes the charge current interactions (recall that since charge is conserved according to noether's theorem there is associated a specific current) in the standard model is given by the expression, 
+
+\begin{equation}
+\mathcal{L}_{weak}=\frac{4}{\sqrt{2}} G_F j^\mu (x) j^\dagger_\mu (x)
+\end{equation}
+
+ with $G_F$ being the fermi constant, this portion describes the charge interactions trough the product of a charge raising and lowering current, this process is universal in the weak interaction, these currents, for the case of the electron and electron neutron pair, can be written as,   
+\begin{align}
+j_\mu(x)=\overline{\nu}_e(x) \gamma_\mu \frac{1}{2}(1-\gamma_5)e(x) & = \overline{\nu}_{e_L}(x) \gamma_\mu e_L(x), \\
+j_\mu^\dagger (x)=\overline{e}(x) \gamma_\mu \frac{1}{2}(1-\gamma_5) \nu_e (x) & = \overline{e}_L(x) \gamma_\mu \nu_{e_L} (x),
+\end{align}
+corresponding to a change of charge $\pm 1$ and containing only left handed fields allowing for the simplification trough the use of the doublet, 
+\begin{equation}
+E_L = \left( \begin{matrix}
+\nu_e \\ 
+e^- 
+\end{matrix} \right)_L
+\end{equation}
+This way we can rewrite the currents as trough the use of the shift operators, 
+\begin{equation}
+j_\mu^{(\pm)} =  \overline{E}_L (x) \gamma_\mu I_\pm E_L(x) 
+\end{equation}
+Defining them as $I_\pm=I_1 \pm I_2$ where $I_i$,$(i=1,2,3) $ are the isonspin generators, these can be writen in terms of the pauli matrices as, $I_i=\frac{1}{2} \sigma_i$. These generators mean that isospin group is a variant of the $SU(2)$ group that we'll represent with $SU(2)_L$ with the generator $I^3$ being assigned to the neutral current. However trough experimental observations we know that the neutral current must also take into account right handed fields indicating that this is not a correct description of the electromagnetic current, here is where the group $U(1)_Y$ comes into play. In the case of the electron we should be able to write the electromagnetic current as: 
+\begin{equation}
+j^em_\mu = \overline{e}(x) \gamma^\mu Q e (x)= \overline{e}_R \gamma_\mu Q \overline{e}_R +   \overline{e}_L \gamma_\mu Q \overline{e}_L
+\end{equation}
+Where Q is the charge associated to the given field, for example in the case of the electron -1 (in natural units). 
+
+It can be shown that the electric charge is related to the weak isospin number trough the equation, 
+\begin{equation}
+Q=I_3 + \frac{1}{2} Y
+\end{equation} 
+here Y being the weak hypercharge number, that has it's eigenvalues chosen in such a manner to allow for the correct charge, thus allowing us to rewrite the electromagnetic current using these values arriving and some particularly chosen currents, 
+\begin{equation}
+j^{em}_\mu = j^{(3)}_\mu + \frac{1}{2} j^Y_\mu
+\end{equation}
+where the hypercharge current is for the electron pair 
+\begin{equation}
+j^Y_\mu = \overline{E}_L (x) \gamma_\mu Y E_L (x) + \overline{e}_R (x) \gamma_\mu Y e_R (x)
+\end{equation}
+Note that we have to then assign to the right handed $e_R$ singlet the hypercharge of $Y=-2$ while the left handed singlet gets a value of $Y=1$ (maybe add a table with all the numbers for the particles). The consequences of the electromagnetic neutral current being writen as a combination of both the hypercharge and isospin current leads to the conclusion that the gauge theory is based on the group $\mathcal{G}$ 
+\begin{equation}
+\mathcal{G} \equiv SU(2)_L \times U(1)_Y
+\end{equation}
+Witch due to the fact that this group is composed by 4 generators 2 of witch are included in both electromagnetic and weak currents leads to gauge group containing both interactions while having the electromagnetic group $U(1)_{em}$ properly included within it.
+ 
+\subsection{The Higgs mechanism and the mass generation of the gauge bosons}
+
+Of the Gauge group we just defined we'll spawn 4 gauge fields named $A_\mu^i$ and $B_\mu$ corresponding respectively to the generators $I^i$ and $Y$. Through observations it was shown that these interact in a very short range requiring them to be massive vector bosons to mathematically describe the proper behaviour. 
+
+The solution that lead to the attribution of mass to these bosons came trough the mechanism of spontaneous symmetry breaking applied to the higgs field, and allowed for these 4 fields to be identified as the $W^\pm$ and $Z$ bosons after mixing with goldstones created by the broken symmetries, since the one boson must remains massless, the photon $A^\mu$,we know that only 3 symmetries must be broken, given this the minimal choise for the higgsfield would be a complex scalar doublet $\phi$ represented as 
+\begin{equation}
+\phi = \left( \begin{matrix}
+\phi^+ \\
+\phi^0 
+\end{matrix} \right)
+\end{equation}
+Where the "top"? part of the field is dedicated the to elements with charge while the lower part is neutral. 
+
+This field has weak isospin charge $I$ of $\frac{1}{2}$ and a hypercharge value of of $1$. This choise allows the breaking of the $SU(2)_L$ group and the $U(1)_Y$ group. The gauge sector in the SM is given by the Lagrangian
+\begin{equation}
+\mathcal{L}_gauge = (D_\mu \phi)^\dagger (D_\mu \phi) - V (\phi \phi^\dagger) - \frac{1}{4} F^i_{\mu \nu} F^{i , \mu \nu} - \frac{1}{4} B_{\mu \nu} B^{\mu \nu}
+\end{equation} 
+The elements of this sector being defined as 
+\begin{equation}
+V(\phi^\dagger \phi ) = \mu \phi^\dagger \phi + \lambda \phi^\dagger \phi
+\end{equation}
+\begin{equation}
+ F^i_{\mu \nu}= \partial_\mu A^i_\nu - \partial_nu A^i_\mu + g \epsilon_{ijk} A^j_\mu A^k_\nu 
+\end{equation}
+\begin{equation}
+B_{\mu \nu} = \partial_\mu B_\nu - \partial_\nu B_\mu 
+\end{equation}
+and finally the covariant derivative 
+\begin{equation}
+D_\mu = \partial_\mu - ig I_i A^i_\mu - ig^\prime \frac{1}{2} Y B_\mu 
+\end{equation}
+In this formulation the constants $g$ and $g^\prime$ are the gauge couplings of the groups $SU(2)_L$ and $U(1)_Y$, respectively, and since the fields of $SU(2)_L$ there is the additional term in the "ask" later 
+ 
+This potential was already aproached, thus we know the conditions in witch we have a phase shift, namely $\mu < 0$ and what kind of VEV we are expected to find, namely
+\begin{equation}
+(\phi^\dagger \phi)= \frac{-\mu^2}{2\lambda} = \frac{1}{2} \nu 
+\end{equation} 
+Given that electrical charge must be conserved only the lower part of the field can be given a non-vanishing vev and it's indeed convinient to shift the field to the following minima choise, 
+\begin{equation}
+\phi_{min} = \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\
+\nu 
+\end{pmatrix}
+\end{equation}
+Now trough the choice of the appropriate unitary gauge we can lose the unnecessary 3 non-physical fields and remain with only the physical field that would originate the Higgs boson, Gauge fixing is a means to deal with unnecessary or additional superfluous degrees of freedom. 
+\begin{equation}
+\phi (x) \rightarrow \phi^\prime(x) \begin{pmatrix}
+0 \\ 
+\nu + h(x) 
+\end{pmatrix}
+\end{equation}
+Turning the Gauge sector of the SM lagrangian into,
+\begin{align}
+\mathcal{L}^\prime = & \frac{1}{2} \partial_\mu h \partial^\mu h - \frac{1}{2} (2v^2 \lambda)  
+ - \frac{1}{4} F^i_{\mu \nu} F^{i , \mu \nu} - \frac{1}{4} B_{\mu \nu} B^{\mu \nu}  \\
+& + \frac{1}{8} \nu^2 g^2 (A^1_\mu A^{1,\mu}+ A^2_\mu A^{2,\mu}) +  \frac{1}{8} \nu^2  (g^2  A^3_\mu A^{3,\mu} + g^{\prime 2} B_\mu B^\mu - 2 g^2 g^{\prime 2} A^3_\mu B^\mu )
+\end{align}
+A few things become obvious first, we have a lot of mass terms now stemming from these squared gauge fields, second we have mixed fields meaning we will have to change this to a physical base where all the field are separate to be able to obtain the real physical masses for the eigenstates of the system. 
+
+First the fields that carry defined charge that can be easly shown to be 
+\begin{equation}
+W^\pm_\mu = \frac{1}{\sqrt{2}} (A^{(1)}_\mu) \pm i A^{(2)}_\mu
+\end{equation}
+meaning that the mass term coupled to the $W^+ W^-$ term is 
+\begin{equation}
+M_W= \frac{1}{2}\nu g
+\end{equation}
+The situation becomes a bit more complicated in the second term since we have diagonal terms in the expression meaning that to discover the physical eigenstates it is necessary to diagonalize the  system, 
+\begin{equation}
+\begin{pmatrix}
+A_\mu^3 && B_\mu
+\end{pmatrix} \cdot  \frac{1}{4} \nu ^2 \begin{pmatrix}
+g^2  & -g g^\prime \\
+-g g^\prime & g^{\prime 2} 
+\end{pmatrix} \cdot \begin{pmatrix}
+A_\mu^3 \\  B_\mu
+\end{pmatrix} 
+\end{equation}
+That results in 
+\begin{equation}
+\begin{pmatrix}
+A_\mu && Z_\mu 
+\end{pmatrix} \begin{pmatrix}
+0  & 0 \\
+0  & \frac{1}{2} \nu \sqrt{g^2 + g^{\prime 2}} 
+\end{pmatrix}  \begin{pmatrix}
+A^\mu \\ Z^\mu
+\end{pmatrix} 
+\end{equation}
+Where the new eigenvectors that represent the $Z$ boson and the photon, $A^\mu$ in terms of the former base are written as,
+\begin{align}
+A_\mu &=\cos(\theta_\omega) B_\mu + \sin(\theta_\omega) A_\mu^3 \\ 
+Z_\mu & =- \sin(\theta_\omega) B_\mu + \cos(\theta_\omega) A_\mu^3
+\end{align}
+Having introduced the weak mixing angle, $ \theta_\omega$, that is when writen in terms of the gauge couplings defined as, 
+\begin{equation}
+\cos(\theta_\omega)=\frac{g}{ \sqrt{g^2 + g^{\prime 2} }}
+\end{equation}
+Thus clearly showing the massless photon along with a massive Z boson with mass $M_Z= \frac{1}{2} \nu \sqrt{g^2 + g^{\prime 2}} $. 
+
+So we conclude our exploration of the electroweak sector with all the correct massive spectrum observed and it's origin discussed.
+\subsection{The fermion sector on the standard model}
+To do if i have space. 
+\subsection{Towards Grand unification}
+
+\end{document}
