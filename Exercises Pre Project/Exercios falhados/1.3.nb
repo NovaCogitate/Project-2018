@@ -1,0 +1,150 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5149,        140]
+NotebookOptionsPosition[      4478,        123]
+NotebookOutlinePosition[      4826,        138]
+CellTagsIndexPosition[      4783,        135]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], ";"}]], "Input",ExpressionU\
+UID->"587389fd-d43f-41d5-b9c2-82c167fbb0a7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Phi]m", "[", 
+    RowBox[{"\[Phi]1_", ",", "\[Phi]2_"}], "]"}], "=", 
+   RowBox[{"\[Phi]1", "+", 
+    RowBox[{"I", " ", "\[Phi]2"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Phi]0", "[", 
+    RowBox[{"\[Phi]3_", ",", "\[Phi]4_"}], "]"}], "=", 
+   RowBox[{"\[Phi]3", "+", 
+    RowBox[{"I", " ", "\[Phi]4"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.727598616632103*^9, 3.7275986221089864`*^9}, {
+  3.727601071519402*^9, 3.727601110737397*^9}, {3.727601221657648*^9, 
+  3.7276012349766455`*^9}},ExpressionUUID->"ef335e1d-2c77-4a5e-abad-\
+225d4ea27d07"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "componentes", " ", "com", " ", "carga", " ", "sao", " ", "os", " ", "de",
+      " ", "cima"}], ",", " ", 
+    RowBox[{"neutros", " ", "sao", " ", "os", " ", "de", " ", "baixo"}], ",", 
+    " ", 
+    RowBox[{"o", " ", "phi4"}], ",", " ", 
+    RowBox[{
+    "1", " ", "e", " ", "2", " ", "devem", " ", "de", " ", "dar", " ", 
+     "bosoes", " ", "de", " ", "goldstone"}], ",", " ", 
+    RowBox[{
+    "a", " ", "terceira", " ", "componente", " ", "phi3", " ", "\[EAcute]", 
+     " ", "o", " ", "bosao", " ", "de", " ", "higgs", " ", "normal"}]}], " ", 
+   "*)"}], " "}]], "Input",
+ CellChangeTimes->{{3.727601248124506*^9, 
+  3.727601322527746*^9}},ExpressionUUID->"f19a9da5-49d1-4dd2-bb6f-\
+f1e5e20b01f5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Phi]", "[", 
+   RowBox[{
+   "\[Phi]1_", " ", ",", " ", "\[Phi]2_", " ", ",", "\[Phi]3_", " ", ",", " ",
+     "\[Phi]4_"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Phi]m", "[", 
+      RowBox[{"\[Phi]1", ",", "\[Phi]2"}], "]"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Phi]0", "[", 
+      RowBox[{"\[Phi]3", ",", "\[Phi]4"}], "]"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.7276013291126723`*^9, 
+  3.7276013935473413`*^9}},ExpressionUUID->"9d3a95ff-6994-43c6-bc72-\
+eaef49f8df15"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"dupleto", " ", "complexo"}], ",", " ", 
+    RowBox[{
+    "deve", " ", "de", " ", "ser", " ", "obviou", " ", "devido", " ", "ao", 
+     " ", "campo", " ", "que", " ", "ira", " ", "gerar", " ", "os", " ", 
+     "bosoes", " ", "de", " ", "Goldstone", " ", "que", " ", "dois", " ", 
+     "devem", " ", "de", " ", "ter", " ", "carga", " ", "e", " ", "que", " ", 
+     "um", " ", "deve", " ", "de", " ", "ser", " ", "neutro"}]}], " ", "*)"}],
+   "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Recapitulando", " ", "todos", " ", "os", " ", "bosoes", " ", "vao", " ", 
+     "ter", " ", "spin", " ", "0"}], ",", " ", 
+    RowBox[{
+    "a", " ", "carga", " ", "ira", " ", "para", " ", "dois", " ", "bosoes", 
+     " ", "de", " ", "goldstone", " ", "e", " ", "um", " ", "sera", " ", 
+     "neutro"}], ",", " ", 
+    RowBox[{
+    "todos", " ", "estes", " ", "t\[EHat]m", " ", "massa", " ", "zero"}]}], 
+   " ", "*)"}], " ", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "primeiro", " ", "e", " ", "segundo", " ", "componente", " ", 
+     "componente", " ", "de", " ", "phi", " ", "vai", " ", "para", " ", "W"}],
+     "+", " ", 
+    RowBox[{"e", " ", "W"}], "-", " ", 
+    RowBox[{
+    "o", " ", "terceiro", " ", "para", " ", "Z0", " ", "e", " ", "o", " ", 
+     "quarto", " ", "para", " ", "h"}]}], " ", "*)"}], "    "}]], "Input",
+ CellChangeTimes->{{3.7276015074722223`*^9, 3.7276015124477367`*^9}, {
+  3.7276015781203732`*^9, 3.727601611360301*^9}, {3.7276016841500554`*^9, 
+  3.727601725753183*^9}, {3.7276018108461714`*^9, 3.7276018354395304`*^9}, {
+  3.7276019243917313`*^9, 
+  3.7276019437845163`*^9}},ExpressionUUID->"2dae1baf-bc80-4649-b6ad-\
+5941c57ecd34"]
+},
+WindowSize->{775, 561},
+WindowMargins->{{Automatic, 191}, {Automatic, 13}},
+FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 148, 3, 45, "Input",ExpressionUUID->"587389fd-d43f-41d5-b9c2-82c167fbb0a7"],
+Cell[709, 25, 632, 16, 82, "Input",ExpressionUUID->"ef335e1d-2c77-4a5e-abad-225d4ea27d07"],
+Cell[1344, 43, 773, 19, 67, "Input",ExpressionUUID->"f19a9da5-49d1-4dd2-bb6f-f1e5e20b01f5"],
+Cell[2120, 64, 568, 16, 28, "Input",ExpressionUUID->"9d3a95ff-6994-43c6-bc72-eaef49f8df15"],
+Cell[2691, 82, 1783, 39, 124, "Input",ExpressionUUID->"2dae1baf-bc80-4649-b6ad-5941c57ecd34"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
